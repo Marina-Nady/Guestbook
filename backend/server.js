@@ -1,7 +1,7 @@
 require('./helper/db_connection');
 const express = require('express');
 const app = express();
-let port =  8000;
+let port =  4000;
 const userRouter = require('./router/users')
 const msgRouter = require('./router/messages')
 var cors = require('cors');
