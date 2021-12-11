@@ -12,9 +12,7 @@ const Users = mongoose.model('Users',{
         type:String,
         required:true
     },
-    message:{
-        type:[mongoose.Schema.Types.ObjectId]
-    }
+
   
 })
 

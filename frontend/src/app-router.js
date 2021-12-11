@@ -3,7 +3,7 @@ import Default from './Components/default';
 import Register from './Components/register'
 import Login from './Components/login'
 import Home from './Components/home'
-
+import Profile from './Components/profile';
 
 
 
@@ -21,6 +21,8 @@ const AppRouter = ()=>{
             <Routes>
                 <Route exact path='/' element={<Default/>} />
                 <Route exact path='/home' element={<Home/>} />
+                <Route exact path='/profile/:id' element={<Profile/>} />
+
 
             </Routes>
         </div>

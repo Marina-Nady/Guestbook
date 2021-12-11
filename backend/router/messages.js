@@ -13,7 +13,6 @@ messageRouter.post('/send',(req,res,next)=>{
     .catch((err)=>{
         res.status(400).json(err)
     })
-    console.log(req)
 })
 
 // delete by ID

@@ -14,16 +14,23 @@ const Login = ()=>{
     const dispatch = useDispatch()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-   
-const status =   useSelector((state)=>state.login.isLogged)
+    const status =   useSelector((state)=>state.login.isLogged)
+    const id =   useSelector((state)=>state.login.payload)
+
 
     useEffect(()=>{
       if(status){
-            window.location.href='/home'
+          window.location.href=`/profile/${id.id}`
       }
       
     },[status])
 
+
+    //   useEffect(()=>{
+    //     console.log(status)
+     
+      
+    // },[])
       const handleChangeEM = e => setEmail(e.target.value)
       const handleChangePS = e => setPassword(e.target.value)
 
@@ -32,7 +39,6 @@ const status =   useSelector((state)=>state.login.isLogged)
             email:email,
             password:password
         }
-        console.log(obj)
          dispatch(loginUser(obj))
       }
 
