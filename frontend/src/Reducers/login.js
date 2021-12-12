@@ -5,7 +5,6 @@ export const loginUser = (state=null,action)=>{
         if(action.payload){
             let payload = action.payload
             isLogged = true;
-            console.log(payload)
             return {payload,isLogged}
         }
     }

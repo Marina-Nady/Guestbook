@@ -20,17 +20,11 @@ const Login = ()=>{
 
     useEffect(()=>{
       if(status){
-          window.location.href=`/profile/${id.id}`
+          window.location.href=`/home`
       }
       
     },[status])
 
-
-    //   useEffect(()=>{
-    //     console.log(status)
-     
-      
-    // },[])
       const handleChangeEM = e => setEmail(e.target.value)
       const handleChangePS = e => setPassword(e.target.value)
 

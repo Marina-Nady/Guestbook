@@ -1,10 +1,8 @@
-import Users from "./users"
 const Default = ()=>{
     return (<>
-        <h1>
-           Login please
-           <Users/>
-        </h1>
+            <h1 className="text-center">
+            Welcome to GuestBook App
+            </h1>
     </>
     )
 }

@@ -44,12 +44,12 @@ const Register = ()=>{
    
 const status = useSelector((state)=>state.add.isRegister)  
 
-    // useEffect(()=>{
-    //   if(status){
-    //         window.location.href='/'
-    //   }
+    useEffect(()=>{
+      if(status){
+            window.location.href='/'
+      }
       
-    // },[status])
+    },[status])
 
       const handleChangeNM = e => setName(e.target.value)
       const handleChangeEM = e => setEmail(e.target.value)

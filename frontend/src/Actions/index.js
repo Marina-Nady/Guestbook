@@ -22,7 +22,7 @@ export const loginUser = (data) => {
       .then((response) => {
         if (response.data.token) {
           console.log(response.data)
-          localStorage.setItem("user", JSON.stringify(response.data));
+          sessionStorage.setItem("user", JSON.stringify(response.data));
         }
         return{
           type:"loginUser",
@@ -76,6 +76,22 @@ export const sendMsg = async (data)=>{
   }
   return{
       type:"sendMsg",
+      payload:response.data
+  }
+}
+
+// get all msgs
+export const  getMsgs = async () =>{
+  let response = null;
+  try {
+      response = await axios.get('http://localhost:4000/api/messages')
+          
+  } catch (err) {
+      console.log(err)
+  }
+
+   return{
+      type:"showMsgs",
       payload:response.data
   }
 }

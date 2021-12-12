@@ -17,8 +17,7 @@ const UsersList = ()=>{
                 <>
                 <User info={user} key={user.id}/>
                 </>
-                                     
-                            ))
+            ))
         }else{
             return <p>
             No Users

@@ -1,8 +1,15 @@
 
 export const sendMsg= (state=null,action)=>{
+    let isSend = false
     if(action.type === "sendMsg"){
-        return action.payload
+        if(action.payload){
+            let payload = action.payload
+            isSend = true;
+            return {payload,isSend}
+
+
+        }
     }
 
-    return state
+    return {state,isSend}
 }

@@ -1,30 +1,32 @@
 import {Link} from 'react-router-dom'
-import {useState,useEffect } from 'react';
-import { useDispatch,useSelector } from 'react-redux';
-import { sendMsg } from '../Actions';
+import {UserDetails} from '../Actions/index'
+import  { useEffect } from 'react'
+import {useSelector,useDispatch} from 'react-redux'
 
-const Message = (props) => {
-    const dispatch = useDispatch()
-    const [msg, setMsg] = useState('');
-    const handleChange = e => setMsg(e.target.value)
+const Message = ({info}) => {
+        const id =   JSON.parse(sessionStorage.getItem("user"))
 
-    const handleOnClick = ()=>{
-        let obj = {
-            content:msg,
-            owner:props.id
-        }
-         dispatch(sendMsg(obj))
-      }
-
-    return (
-    <>
-    <div className="alert d-flex justify-content-between">
-        <input type="text" onChange={handleChange}/>
-        <input type="button" value="Send" onClick={handleOnClick}/>
-    </div>
-    </>
-    )
-
+        if (info) {
+                return (
+                <>
+                <div className="alert border border-2 d-flex justify-content-between">
+                        <h5>{info.auth.name} : {info.content}</h5> 
+                        <button>Reply</button>
+                </div>
+                
+                {/* <h5>to: {info.to.name}</h5> */}
+                {/* <Link to={`/profile/${info._id}`}>
+                Send Message
+                </Link> */}
+                {/* {id.id === info._id
+                        ?   <Link to={`/profile/${info._id}`}>Profile</Link>
+                        : <Link to={`/profile/${info._id}`}>Send Message</Link>
+                } */}
+                </>
+        )
+}
+                return <p>No Info prop available</p>
+    
 }
 export default Message;
 

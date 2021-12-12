@@ -1,10 +1,23 @@
+import { useDispatch,useSelector } from 'react-redux';
+import Users from "./users"
+import Default from './default';
+
 
 const Home = ()=>{
-    return (<>
-        <h1>
-            Welcome, you're logged in
-        </h1>
-    </>
+    
+    if(sessionStorage.user){
+        return(
+            <div className='m-5'>
+           <Users/>
+            </div>
+        )
+    }else{
+        return (
+        <>
+            <Default/>
+        </>
     )
+        }
+
 }
 export default Home

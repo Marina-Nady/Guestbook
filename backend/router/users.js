@@ -34,7 +34,7 @@ userRouter.post('/login', async (req,res)=>{
                 jwt.sign({id:user._id},secret,(err,token)=>{
                     res.status(200).json({
                         token:token,
-                        id:user._id
+                        id:user._id,
                     })
                 })
             }else{

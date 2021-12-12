@@ -3,9 +3,15 @@ const Messages = mongoose.model('Messages',{
     content:{
         type:String,
     },    
-    owner:{
-        type:mongoose.Schema.Types.ObjectId
+    auth:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Users'
+    },
+    to:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Users'
     }
+
   
 })
 
