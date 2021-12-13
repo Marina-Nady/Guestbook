@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const Messages = mongoose.model('Messages',{
+const Replies = mongoose.model('Replies',{
     content:{
         type:String,
     },    
@@ -11,9 +11,12 @@ const Messages = mongoose.model('Messages',{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Users'
     },
-
+    msgId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Messages'
+    }
 
   
 })
 
-module.exports = Messages
+module.exports = Replies

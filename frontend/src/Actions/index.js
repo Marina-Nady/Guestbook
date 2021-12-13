@@ -84,7 +84,7 @@ export const sendMsg = async (data)=>{
 export const  getMsgs = async () =>{
   let response = null;
   try {
-      response = await axios.get('http://localhost:4000/api/messages')
+      response = await axios.get('http://localhost:4000/api/messages/allmsgs')
           
   } catch (err) {
       console.log(err)
@@ -129,3 +129,51 @@ export const editMsg = async (id,data)=>{
       payload:response.data
   }
 }
+
+//get msg by id
+export const MsgDetails = async (id)=>{
+    let response = null;
+    try {
+        response = await axios.get(`http://localhost:4000/api/messages/${id}`)
+  
+    } catch (err) {
+        console.log(err)
+  
+    }
+  
+    return {
+        type:'MsgDetails',
+        payload:response.data
+    }
+  }
+
+//add reply
+export const addReply = async (data)=>{
+    let response = null;
+    try {
+        response = await axios.post(`http://localhost:4000/api/messages/reply`,data)
+        
+    } catch (err) {
+        console.log(err)
+    }
+    return{
+        type:"addReply",
+        payload:response.data
+    }
+  }
+
+  //get all replies
+  export const  getReplies = async () =>{
+    let response = null;
+    try {
+        response = await axios.get('http://localhost:4000/api/messages/replies')
+            
+    } catch (err) {
+        console.log(err)
+    }
+  
+     return{
+        type:"getReplies",
+        payload:response.data
+    }
+  }

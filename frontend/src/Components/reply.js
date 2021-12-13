@@ -1,52 +1,57 @@
 import {useState,useEffect } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
-import { editMsg } from '../Actions';
-import {getMsgs} from '../Actions/index'
+import { addReply } from '../Actions';
+import { getReplies } from '../Actions';
 
 
 
 
-const EditMsg = (props)=>{
-    const  id  = props.id
+
+const ReplyMsg = (props)=>{
+    const  msgId  = props.id
     const dispatch = useDispatch()
-    const msgs = useSelector((state)=>state.msgs)
-    const [content, setContent] = useState();
+    const [reply, setReply] =  useState('')
+    const id =   JSON.parse(sessionStorage.getItem("user"))
+    const replies =  useSelector((state)=>state.getReplies)
 
-    // useEffect(()=>{
-    //     dispatch(getMsgs());
-    // },[msgs])
 
-    const handleOnChange = e => setContent(e.target.value)
+
+
+    useEffect(()=>{
+        // console.log(replies)
+        dispatch(getReplies());
+    },[dispatch])
+
+    const handleOnChange = e => setReply(e.target.value)
 
     const handleOnClick = ()=>{
-        document.getElementById("content").value=''
-        let obj = {content:content}
-        document.getElementById("editModal").classList.remove("show", "d-block");
+        document.getElementById("reply").value=''
+        document.getElementById("replyModal").classList.remove("show", "d-block");
         document.querySelectorAll(".modal-backdrop")
                 .forEach(el => el.classList.remove("modal-backdrop")); 
-        dispatch(editMsg(id,obj))
+        let obj = {content:reply,
+                    auth:id.id,
+                    msgId:msgId}
+        dispatch(addReply(obj))
     }
 
     
-
-
-    
     return <div className="text-center">   
-        <button type="button" className="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#editModal">
-            Edit
+        <button type="button" className="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#replyModal">
+            Reply
         </button>
 
-        <div className="modal fade" id="editModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade" id="replyModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
             <div className="modal-content">
             <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">Edit</h5>
+                <h5 className="modal-title" id="exampleModalLabel">Reply</h5>
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-                <input type="text" id='content'
+                <input type="text" id='reply'
                         placeholder='Type your message...' 
-                        name='content' style={{display:'block',
+                        name='reply' style={{display:'block',
                                               margin:'auto',
                                               width:'70%'}}
                         onChange={handleOnChange}                      
@@ -55,7 +60,7 @@ const EditMsg = (props)=>{
             <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
                 <button className="btn btn-dark m-2 w-25"  onClick={handleOnClick}>
-                                    Update
+                                    Reply
                 </button>  
                 </div>
             </div>
@@ -65,4 +70,4 @@ const EditMsg = (props)=>{
 
     </div>
 }
-export default EditMsg;
+export default ReplyMsg;

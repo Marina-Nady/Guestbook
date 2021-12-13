@@ -7,6 +7,9 @@ import { sendMsg } from './sendMsg';
 import { showMsgs } from './showMsgs';
 import { deleteMsg } from './deleteMsg';
 import { editMsg } from './editMsg';
+import { MsgDetails } from './getMsg';
+import { getReplies } from './getReplies';
+
 
 
 
@@ -20,5 +23,7 @@ export default combineReducers({
   send:sendMsg,
   msgs:showMsgs,
   deleteMsg:deleteMsg,
-  editMsg:editMsg
+  editMsg:editMsg,
+  getMsg:MsgDetails,
+  replies:getReplies
 })

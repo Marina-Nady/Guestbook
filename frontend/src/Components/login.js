@@ -15,8 +15,6 @@ const Login = ()=>{
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const status =   useSelector((state)=>state.login.isLogged)
-    const id =   useSelector((state)=>state.login.payload)
-
 
     useEffect(()=>{
       if(status){

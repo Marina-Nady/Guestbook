@@ -1,5 +1,5 @@
-import {useState,useEffect } from 'react';
-import { useDispatch,useSelector } from 'react-redux';
+import {useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { deleteMsg } from '../Actions';
 import {getMsgs} from '../Actions/index'
 
@@ -7,14 +7,12 @@ import {getMsgs} from '../Actions/index'
 const DeleteMsg = (props)=>{
     const dispatch = useDispatch()
     const  id  = props.id
-    const msgs = useSelector((state)=>state.msgs)
-    const [hidden, setHidden] = useState("");
     // console.log(status)
 
 
     useEffect(()=>{
             dispatch(getMsgs());
-    },[msgs])
+    },[dispatch])
 
     const handleOnClick = ()=>{
         document.getElementById("deleteModal").classList.remove("show", "d-block");

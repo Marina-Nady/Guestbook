@@ -16,7 +16,7 @@ const Profile = ()=>{
 
     useEffect(()=>{
         dispatch(UserDetails(params.id))
-    },[dispatch])
+    },[params.id])
 
     if(details){
         return(
