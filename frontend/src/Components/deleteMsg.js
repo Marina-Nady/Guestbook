@@ -1,6 +1,5 @@
 import {useState,useEffect } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
-import { useParams } from "react-router"
 import { deleteMsg } from '../Actions';
 import {getMsgs} from '../Actions/index'
 
@@ -8,7 +7,6 @@ import {getMsgs} from '../Actions/index'
 const DeleteMsg = (props)=>{
     const dispatch = useDispatch()
     const  id  = props.id
-    const status = useSelector((state)=>state.deleteMsg.isDeleted)
     const msgs = useSelector((state)=>state.msgs)
     const [hidden, setHidden] = useState("");
     // console.log(status)

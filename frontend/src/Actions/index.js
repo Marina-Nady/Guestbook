@@ -112,3 +112,20 @@ export const deleteMsg = async (id)=>{
       payload:response.data
   }
 }
+
+//edit msg
+export const editMsg = async (id,data)=>{
+
+  let response = null;
+  try {
+      response = await axios.patch(`http://localhost:4000/api/messages/${id}`,data)
+      
+  } catch (err) {
+      console.log(err)
+  }
+
+  return{
+      type:"editMsg",
+      payload:response.data
+  }
+}

@@ -1,5 +1,4 @@
-import {BrowserRouter as Router,Switch,Routes,Route,Link} from 'react-router-dom'
-import Default from './Components/default';
+import {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom'
 import Register from './Components/register'
 import Login from './Components/login'
 import Home from './Components/home'
@@ -22,8 +21,6 @@ const AppRouter = ()=>{
                 <Route exact path='/' element={<Home/>} />
                 <Route exact path='/home' element={<Home/>} />
                 <Route exact path='/profile/:id' element={<Profile/>} />
-
-
             </Routes>
         </div>
     </Router>

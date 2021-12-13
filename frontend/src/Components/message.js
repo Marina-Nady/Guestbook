@@ -1,8 +1,5 @@
-import {Link} from 'react-router-dom'
-import {UserDetails} from '../Actions/index'
-import  { useEffect } from 'react'
-import {useSelector,useDispatch} from 'react-redux'
 import DeleteMsg from './deleteMsg'
+import EditMsg from './editMsg'
 
 const Message = ({info}) => {
         const id =   JSON.parse(sessionStorage.getItem("user"))
@@ -10,12 +7,12 @@ const Message = ({info}) => {
         if (info) {
                 return (
                 <>
-                <div className="alert border border-2 d-flex justify-content-between">
+                <div key={info._id} className="alert border border-2 d-flex justify-content-between">
                         {/* <h5>{info.auth.name} : {info.content}</h5>  */}
-                        {id.id == info.auth._id 
+                        {id.id === info.auth._id 
                         ? <>
                                 <h5>To: {info.to.name} : {info.content}</h5> 
-                                <button>Edit</button>
+                                <EditMsg id={info._id}/>
                                 <DeleteMsg id={info._id}/>
                           </>
 

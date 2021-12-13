@@ -27,7 +27,7 @@ messageRouter.delete('/:id',(req,res,next)=>{
  });
 
 //edit 
- messageRouter.put('/:id',(req,res,next)=>{
+ messageRouter.patch('/:id',(req,res,next)=>{
     let {body} = req
     Messages.findByIdAndUpdate(req.params.id,body)
     .then((result)=>{

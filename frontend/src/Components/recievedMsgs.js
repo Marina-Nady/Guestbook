@@ -15,16 +15,11 @@ const RecievedMsgs = ()=>{
 
     if(msgs){
         if(msgs.length>0){
-            // return   msgs.map((msg)=>(
-            //     <>
-            //     <Message info={msg} key={msg.id}/>
-            //     </>
-            // ))
             return(
-                msgs.filter((msg)=>( id.id != msg.auth._id))
+                msgs.filter((msg)=>( id.id !== msg.auth._id))
                         .map((filtered)=>(
                             <>
-                            <Message info={filtered} key={filtered.id}/>
+                            <Message info={filtered} key={filtered._id}/>
                             </>
                         ))        
             ) 

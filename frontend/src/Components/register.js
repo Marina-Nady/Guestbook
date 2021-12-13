@@ -2,7 +2,6 @@
 import {useState,useEffect } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { addUser } from '../Actions/index';
-import FormData from "form-data";
 import validator from 'validator';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
@@ -15,7 +14,6 @@ const Register = ()=>{
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const form_data = new FormData();
 
 // const required = (value) => {
 //   if (!value.toString().trim().length) {

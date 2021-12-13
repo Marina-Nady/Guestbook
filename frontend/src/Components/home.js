@@ -1,7 +1,5 @@
-import { useDispatch,useSelector } from 'react-redux';
 import Users from "./users"
 import Default from './default';
-
 
 const Home = ()=>{
     
