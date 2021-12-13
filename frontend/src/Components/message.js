@@ -13,7 +13,7 @@ const Message = ({info}) => {
                         {/* <h5>{info.auth.name} : {info.content}</h5>  */}
                         {id.id === info.auth._id 
                         ? <>
-                                <h5>To: 
+                                <h5>To: <br/>  
                                         <Link to={`/profile/${info.to._id}`} style={{cursor:'pointer'}}>
                                                 {info.to.name}</Link> 
                                         : {info.content}</h5> 
@@ -30,14 +30,6 @@ const Message = ({info}) => {
                         
                 </div>
                 
-                {/* <h5>to: {info.to.name}</h5> */}
-                {/* <Link to={`/profile/${info._id}`}>
-                Send Message
-                </Link> */}
-                {/* {id.id === info._id
-                        ?   <Link to={`/profile/${info._id}`}>Profile</Link>
-                        : <Link to={`/profile/${info._id}`}>Send Message</Link>
-                } */}
                 </>
         )
 }

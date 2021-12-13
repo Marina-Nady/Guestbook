@@ -20,9 +20,10 @@ const Profile = ()=>{
 
     if(details){
         return(
-            <>
-            <h1>{details.name}</h1>
-            <h1>{details.email}</h1>
+            <div className='m-3'>
+            <h3>Name: {details.name}</h3>
+             <h3>Email: {details.email}</h3>
+             <br/>
             {details._id === id.id 
             ? <div>
                 <h4>Sent Messages</h4>
@@ -33,7 +34,7 @@ const Profile = ()=>{
             : <SendMsg to={details._id}/>}
 
             
-            </>
+            </div>
         )
     }
     return <p>

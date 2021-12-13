@@ -17,10 +17,10 @@ const ReplyMsg = (props)=>{
 
 
 
-    useEffect(()=>{
-        // console.log(replies)
-        dispatch(getReplies());
-    },[dispatch])
+    // useEffect(()=>{
+    //     // console.log(replies)
+    //     dispatch(getReplies());
+    // },[dispatch])
 
     const handleOnChange = e => setReply(e.target.value)
 
