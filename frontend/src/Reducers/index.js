@@ -5,6 +5,8 @@ import { userReducer } from './users';
 import { UserDetails } from './profile';
 import { sendMsg } from './sendMsg';
 import { showMsgs } from './showMsgs';
+import { deleteMsg } from './deleteMsg';
+
 
 
 
@@ -14,5 +16,6 @@ export default combineReducers({
   users:userReducer,
   details:UserDetails,
   send:sendMsg,
-  msgs:showMsgs
+  msgs:showMsgs,
+  deleteMsg:deleteMsg
 })

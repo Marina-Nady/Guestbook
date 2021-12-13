@@ -26,7 +26,7 @@ messageRouter.delete('/:id',(req,res,next)=>{
     })
  });
 
-
+//edit 
  messageRouter.put('/:id',(req,res,next)=>{
     let {body} = req
     Messages.findByIdAndUpdate(req.params.id,body)
@@ -39,7 +39,7 @@ messageRouter.delete('/:id',(req,res,next)=>{
 });
 
  
-//get all 
+//get all msgs
 messageRouter.get('/',(req,res)=>{
     Messages.find({}).populate('auth').populate('to')
     .then((result)=>{

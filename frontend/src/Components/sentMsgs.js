@@ -4,7 +4,7 @@ import {useSelector,useDispatch} from 'react-redux'
 import {getMsgs} from '../Actions/index'
 import Message from './message'
 
-const ShowMsgs = ()=>{
+const SentMsgs = ()=>{
     const dispatch = useDispatch()
     const msgs = useSelector((state)=>state.msgs)
         const id =   JSON.parse(sessionStorage.getItem("user"))
@@ -15,11 +15,14 @@ const ShowMsgs = ()=>{
 
     if(msgs){
         if(msgs.length>0){
-            return   msgs.map((msg)=>(
-                <>
-                <Message info={msg} key={msg.id}/>
-                </>
-            ))
+            return(
+                msgs.filter((msg)=>( id.id == msg.auth._id))
+                        .map((filtered)=>(
+                            <>
+                            <Message info={filtered} key={filtered.id}/>
+                            </>
+                        ))        
+            ) 
         }else{
             return <p>
             No Msgs
@@ -32,7 +35,7 @@ const ShowMsgs = ()=>{
 </p>
 }
 
-export default ShowMsgs;
+export default SentMsgs;
 
 
 

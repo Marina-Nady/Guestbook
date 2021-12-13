@@ -95,3 +95,20 @@ export const  getMsgs = async () =>{
       payload:response.data
   }
 }
+
+//delete msg
+export const deleteMsg = async (id)=>{
+
+  let response = null;
+  try {
+      response = await axios.delete(`http://localhost:4000/api/messages/${id}`)
+      
+  } catch (err) {
+      console.log(err)
+  }
+
+  return{
+      type:"deleteMsg",
+      payload:response.data
+  }
+}
